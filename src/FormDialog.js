@@ -15,55 +15,67 @@ export default class FormDialog extends React.Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
-  componentDidMount(){
-    this.setInitValue(this.props.action,this.props.initVal);
+  componentDidMount() {
+    this.setInitValue(this.props.action, this.props.initVal);
   }
 
   state = {
     open: false,
-    firstName:'',
-    lastName:'',
-    age:''
+    firstName: '',
+    lastName: '',
+    age: ''
   };
 
   handleClickOpen = () => {
-    this.setState({ open: true });
+    this.setState({
+      open: true
+    });
   };
 
   handleClose = () => {
-    this.setState({ open: false });
+    this.setState({
+      open: false
+    });
   };
 
   handleSubmit(e) {
     e.preventDefault();
     this.props.onSubmit(this.state);
-    if(this.props.action==='newMember'){
-        this.setState({firstName:'',
-        lastName:'',
-        age:''});
+    if (this.props.action === 'newMember') {
+      this.setState({
+        firstName: '',
+        lastName: '',
+        age: ''
+      });
     }
   }
 
   handleChange(e) {
-      
-      switch (e.target.id){
-        case "firstName":
-            this.setState({firstName:e.target.value});
+
+    switch (e.target.id) {
+      case "firstName":
+        this.setState({
+          firstName: e.target.value
+        });
         break;
-        case "lastName":
-            this.setState({lastName:e.target.value});
+      case "lastName":
+        this.setState({
+          lastName: e.target.value
+        });
         break;
-        case "age":
-            this.setState({age:e.target.value});
+      case "age":
+        this.setState({
+          age: e.target.value
+        });
         break;
-        default:
+      default:
         break;
-      }
+    }
   }
 
-  setInitValue(action, initVal){
-    if(action==='editMember' && initVal){
-        this.setState(initVal);
+  setInitValue(action, initVal) {
+    if (action === 'editMember' && initVal) {
+      this.setState(initVal);
     }
   }
   
