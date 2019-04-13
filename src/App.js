@@ -47,7 +47,6 @@ class App extends Component {
   }
 
   handleSubmit(newMember) {
-    // update state
     var m = Object.assign([], this.state.member);
     var obj = Object.assign({}, newMember);
     obj.id = m.length;
@@ -59,7 +58,6 @@ class App extends Component {
   }
 
   handleEditSubmit(editingMember) {
-    // update state
     var m = Object.assign([], this.state.member);
     var obj = Object.assign({}, editingMember);
     delete obj.open;
@@ -69,7 +67,6 @@ class App extends Component {
     });
   }
   handleDeleteSubmit(id) {
-    // update state
     var m = Object.assign([], this.state.member);
     delete m[id];
     this.setState({
@@ -81,8 +78,8 @@ class App extends Component {
     const m = this.state.member;
     return (
       <div className="App">
-        <MemberList member={m} onSubmit = {this.handleEditSubmit} onDelete={this.handleDeleteSubmit}></MemberList>
-        <FormDialog onSubmit = {this.handleSubmit} action="newMember" ></FormDialog>
+        <MemberList member={m} onSubmit={this.handleEditSubmit} onDelete={this.handleDeleteSubmit}></MemberList>
+        <FormDialog onSubmit={this.handleSubmit} action="newMember"></FormDialog>
       </div>
     );
   }

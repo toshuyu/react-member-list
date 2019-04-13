@@ -3,7 +3,7 @@ import React from 'react';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
-//import TableHead from '@material-ui/core/TableHead';
+import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import FormDialog from './FormDialog';
 import DelButton from './DelButton';
@@ -27,6 +27,15 @@ class MemberList extends React.Component {
 
     return (
       <Table>
+        <TableHead>
+          <TableRow>
+            <TableCell align="right">First name</TableCell>
+            <TableCell align="right">Last name</TableCell>
+            <TableCell align="right">Age</TableCell>
+            <TableCell align="right">Edit</TableCell>
+            <TableCell align="right">Remove</TableCell>
+          </TableRow>
+        </TableHead>
         <TableBody>
           {member.map(m => (
             <TableRow key={m.id}>
