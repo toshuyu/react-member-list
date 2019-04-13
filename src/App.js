@@ -1,25 +1,46 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import MemberList from './MemberList';
+import FormDialog from './FormDialog';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleEditSubmit = this.handleEditSubmit.bind(this);
+    this.state = { 
+      member:[
+            {id:0, firstName:'Tom',lastName:'Chen',age:'30',contact:[{type:'line',value:'tmchen'},{type:'email',value:'tmchen@gmail.com'},{type:'fb',value:'https://fb.com/chen'}]},
+            {id:1, firstName:'Tim',lastName:'Tsai',age:'30',contact:[{type:'line',value:'timtsa'},{type:'email',value:'tsssss@gmail.com'},{type:'fb',value:'https://fb.com/tsai'}]}
+        ]
+    };
+  }
+
+  handleSubmit(newMember){
+    // update state
+    var m = Object.assign([],this.state.member);
+    var obj = Object.assign({},newMember);
+    obj.id = m.length;
+    delete obj.open;
+    m.push(obj);
+    this.setState({member:m});
+  }
+
+  handleEditSubmit(editingMember){
+    // update state
+    var m = Object.assign([],this.state.member);
+    var obj = Object.assign({},editingMember);
+    delete obj.open;
+    m[obj.id] = obj;
+    this.setState({member:m});
+  }
+
   render() {
+    const m = this.state.member;
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <MemberList member={m} onSubmit = {this.handleEditSubmit}></MemberList>
+        <FormDialog onSubmit = {this.handleSubmit} action="newMember" ></FormDialog>
       </div>
     );
   }
