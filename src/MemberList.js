@@ -32,8 +32,9 @@ class MemberList extends React.Component {
             <TableCell align="right">First name</TableCell>
             <TableCell align="right">Last name</TableCell>
             <TableCell align="right">Age</TableCell>
+            <TableCell align="right">Contact</TableCell>
             <TableCell align="right">Edit</TableCell>
-            <TableCell align="right">Remove</TableCell>
+            <TableCell align="right">Delete</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -42,6 +43,9 @@ class MemberList extends React.Component {
               <TableCell align="right">{m.firstName}</TableCell>
               <TableCell align="right">{m.lastName}</TableCell>
               <TableCell align="right">{m.age}</TableCell>
+              <TableCell align="right">{m.contact.map(c=>(
+                <p key={c.type}>{c.type}: {c.value}</p>
+              ))}</TableCell>
               <TableCell align="right">
                 <FormDialog onSubmit={this.handleEditSubmit} action="editMember" initVal={m}></FormDialog>
               </TableCell>

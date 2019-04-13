@@ -23,7 +23,8 @@ export default class FormDialog extends React.Component {
     open: false,
     firstName: '',
     lastName: '',
-    age: ''
+    age: '',
+    contact: []
   };
 
   handleClickOpen = () => {
@@ -45,7 +46,8 @@ export default class FormDialog extends React.Component {
       this.setState({
         firstName: '',
         lastName: '',
-        age: ''
+        age: '',
+        contact: []
       });
     }
   }
@@ -94,7 +96,7 @@ export default class FormDialog extends React.Component {
         <form onSubmit={this.handleSubmit}>
           <DialogContent>
             <DialogContentText>
-            {this.props.action==="newMember"?'Add':'Edit'}  a member
+            {this.props.action==="newMember"?'Add':'Edit'} a member
             </DialogContentText>
             <TextField
               autoFocus
