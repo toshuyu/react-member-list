@@ -11,11 +11,8 @@ export default class FormDialog extends React.Component {
   constructor(props) {
     super(props);
     this.setInitValue = this.setInitValue.bind(this);
-    
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
-    //this.handleChangeLastName = this.handleChangeLastName.bind(this);
-    console.log('hiii');
   }
 
   componentDidMount(){
