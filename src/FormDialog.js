@@ -58,7 +58,6 @@ export default class FormDialog extends React.Component {
   }
 
   handleChange(e) {
-
     switch (e.target.id) {
       case "firstName":
         this.setState({
@@ -100,51 +99,52 @@ export default class FormDialog extends React.Component {
         <Dialog
           open={this.state.open}
           onClose={this.handleClose}
-          aria-labelledby="form-dialog-title"
         >
-        <form onSubmit={this.handleSubmit}>
-          <DialogContent>
-            <DialogContentText>
-            {this.props.action==="newMember"?'Add':'Edit'} a member
-            </DialogContentText>
-            <TextField
-              autoFocus
-              margin="dense"
-              id="firstName"
-              label="First Name"
-              type="text"
-              value={this.state.firstName}
-              onChange={this.handleChange}
-              fullWidth
-            />
-            <TextField
-              margin="dense"
-              id="lastName"
-              label="Last Name"
-              type="text"
-              value={this.state.lastName}
-              onChange={this.handleChange}
-              fullWidth
-            />
-            <TextField
-              margin="dense"
-              id="age"
-              label="Age"
-              type="text"
-              value={this.state.age}
-              onChange={this.handleChange}
-              fullWidth
-            />
-            <Contact id="contact" line={this.state.line} email={this.state.email} facebook={this.state.facebook} onChange={this.handleChange}></Contact>
-          </DialogContent>
-          <DialogActions>
-            <Button onClick={this.handleClose} color="primary">
-              Cancel
-            </Button>
-            <Button type="submit" onClick={this.handleClose} color="primary">
-              Save
-            </Button>
-          </DialogActions>
+          <form onSubmit={this.handleSubmit}>
+            <DialogContent>
+              <DialogContentText>
+                {this.props.action==="newMember"?'Add':'Edit'} a member
+              </DialogContentText>
+              <TextField
+                autoFocus
+                margin="dense"
+                id="firstName"
+                label="First Name"
+                type="text"
+                value={this.state.firstName}
+                onChange={this.handleChange}
+                fullWidth
+              />
+              <TextField
+                margin="dense"
+                id="lastName"
+                label="Last Name"
+                type="text"
+                value={this.state.lastName}
+                onChange={this.handleChange}
+                fullWidth
+              />
+              <TextField
+                margin="dense"
+                id="age"
+                label="Age"
+                type="text"
+                value={this.state.age}
+                onChange={this.handleChange}
+                fullWidth
+              />
+              <Contact 
+                id="contact" 
+                line={this.state.line} 
+                email={this.state.email} 
+                facebook={this.state.facebook} 
+                onChange={this.handleChange}>
+              </Contact>
+            </DialogContent>
+            <DialogActions>
+              <Button onClick={this.handleClose} color="primary">Cancel</Button>
+              <Button type="submit" onClick={this.handleClose} color="primary">Save</Button>
+            </DialogActions>
           </form>
         </Dialog>
       </div>
