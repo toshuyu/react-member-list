@@ -43,9 +43,11 @@ class MemberList extends React.Component {
               <TableCell align="right">{m.firstName}</TableCell>
               <TableCell align="right">{m.lastName}</TableCell>
               <TableCell align="right">{m.age}</TableCell>
-              <TableCell align="right">{m.contact.map(c=>(
-                <p key={c.type}>{c.type}: {c.value}</p>
-              ))}</TableCell>
+              <TableCell align="right">
+                <p>line: {m.line}</p>
+                <p>e-mail: {m.email}</p>
+                <p>facebook: {m.facebook}</p>
+              </TableCell>
               <TableCell align="right">
                 <FormDialog onSubmit={this.handleEditSubmit} action="editMember" initVal={m}></FormDialog>
               </TableCell>

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import MemberList from './MemberList';
 import FormDialog from './FormDialog';
+import mockLib from './mock';
 
 class App extends Component {
   constructor(props) {
@@ -10,39 +11,7 @@ class App extends Component {
     this.handleEditSubmit = this.handleEditSubmit.bind(this);
     this.handleDeleteSubmit = this.handleDeleteSubmit.bind(this);
     this.state = {
-      member: [{
-          id: 0,
-          firstName: 'Tom',
-          lastName: 'Chen',
-          age: '30',
-          contact: [{
-            type: 'line',
-            value: 'tmchen'
-          }, {
-            type: 'email',
-            value: 'tmchen@gmail.com'
-          }, {
-            type: 'fb',
-            value: 'https://fb.com/chen'
-          }]
-        },
-        {
-          id: 1,
-          firstName: 'Tim',
-          lastName: 'Tsai',
-          age: '30',
-          contact: [{
-            type: 'line',
-            value: 'timtsa'
-          }, {
-            type: 'email',
-            value: 'tsssss@gmail.com'
-          }, {
-            type: 'fb',
-            value: 'https://fb.com/tsai'
-          }]
-        }
-      ]
+      member: mockLib.flattenMock(mockLib.mock)
     };
   }
 
@@ -66,6 +35,7 @@ class App extends Component {
       member: m
     });
   }
+
   handleDeleteSubmit(id) {
     var m = Object.assign([], this.state.member);
     delete m[id];

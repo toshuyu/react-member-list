@@ -5,6 +5,7 @@ import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
+import Contact from './Contact';
 
 
 export default class FormDialog extends React.Component {
@@ -24,7 +25,9 @@ export default class FormDialog extends React.Component {
     firstName: '',
     lastName: '',
     age: '',
-    contact: []
+    line: '',
+    email: '',
+    facebook: ''
   };
 
   handleClickOpen = () => {
@@ -47,7 +50,9 @@ export default class FormDialog extends React.Component {
         firstName: '',
         lastName: '',
         age: '',
-        contact: []
+        line: '',
+        email: '',
+        facebook: ''
       });
     }
   }
@@ -70,6 +75,11 @@ export default class FormDialog extends React.Component {
           age: e.target.value
         });
         break;
+      case "contact":
+        this.setState({
+          [e.contactType]: e[e.contactType]
+        });
+        break;
       default:
         break;
     }
@@ -80,7 +90,6 @@ export default class FormDialog extends React.Component {
       this.setState(initVal);
     }
   }
-  
 
   render() {
     return (
@@ -126,6 +135,7 @@ export default class FormDialog extends React.Component {
               onChange={this.handleChange}
               fullWidth
             />
+            <Contact id="contact" line={this.state.line} email={this.state.email} facebook={this.state.facebook} onChange={this.handleChange}></Contact>
           </DialogContent>
           <DialogActions>
             <Button onClick={this.handleClose} color="primary">
