@@ -9,7 +9,7 @@ import Select from '@material-ui/core/Select';
 class Contact extends React.Component {
     constructor(props) {
         super(props);
-        this.handleChange = this.handleChange.bind(this);
+        this.handleSelectorChange = this.handleSelectorChange.bind(this);
         this.handleContactChange = this.handleContactChange.bind(this);
     }
 
@@ -25,24 +25,26 @@ class Contact extends React.Component {
         });
     }
 
-    handleChange = event => {
+    handleSelectorChange = event => {
         this.setState({
             [event.target.name]: event.target.value
         });
     };
 
-    handleContactChange(e){
+    handleContactChange(e) {
         const contactType = this.state.contactType;
         this.setState({
             [contactType]: e.target.value
         });
-        var ret = {...e, contactType:contactType, [contactType]: e.target.value}
+        var ret = {
+            ...e,
+            contactType: contactType,
+            [contactType]: e.target.value
+        }
         this.props.onChange(ret);
-    } 
+    }
   
   render() {
-    
-
     return (
         <div>
         <FormControl>
@@ -51,7 +53,7 @@ class Contact extends React.Component {
           </InputLabel>
           <Select
             value={this.state.contactType}
-            onChange={this.handleChange}
+            onChange={this.handleSelectorChange}
             input={<Input name="contactType" id="contactType-label-placeholder" />}
             displayEmpty
             name="contactType"
@@ -63,12 +65,13 @@ class Contact extends React.Component {
             <MenuItem value={'email'}>E-mail</MenuItem>
             <MenuItem value={'facebook'}>Facebook</MenuItem>
           </Select>
-          
         </FormControl>
+
         <TextField
-            margin="dense"
+            margin="none"
             id="contact"
-            label=""
+            disabled={this.state.contactType?false:true}
+            label={this.state.contactType}
             onChange={this.handleContactChange}
             value={this.state.contactType?this.state[this.state.contactType]:''}
             type="text"
