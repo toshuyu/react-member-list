@@ -9,6 +9,11 @@ Delete is not the "real" delete now. It only hides the rows now.
 
 Made with `Create React App` and `Material UI`
 
+<img width="827" alt="Screen Shot 2019-04-14 at 16 44 13" src="https://user-images.githubusercontent.com/13717706/56090470-00719700-5ed5-11e9-9cb3-951ee3c4dcae.png">
+
+<img width="825" alt="Screen Shot 2019-04-14 at 16 44 03" src="https://user-images.githubusercontent.com/13717706/56090471-02d3f100-5ed5-11e9-92d9-e893072ec6f7.png">
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
