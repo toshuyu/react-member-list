@@ -1,8 +1,12 @@
 ## Member List
 Member list management tool with Add / Edit / Delete function.
+
 Member data is stored in a root state. 
+
 By changing root member state, React triggers `render` automatically to render the latest member data.
+
 Delete is not the "real" delete now. It only hides the rows now.
+
 Made with `Create React App` and `Material UI`
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
