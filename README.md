@@ -7,7 +7,7 @@ By changing root member state, React triggers `render` automatically to render t
 
 Delete is not the "real" delete now. It only hides the rows now.
 
-Made with `Create React App` and `Material UI`
+Made with `Create React App` and `Material UI`.
 
 <img width="827" alt="Screen Shot 2019-04-14 at 16 44 13" src="https://user-images.githubusercontent.com/13717706/56090470-00719700-5ed5-11e9-9cb3-951ee3c4dcae.png">
 
