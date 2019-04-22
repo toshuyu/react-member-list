@@ -1,4 +1,6 @@
 ## Member List
+Deployment: https://toshuyu.github.io/react-member-list/index.html
+
 Member list management tool with Add / Edit / Delete function.
 
 Member data is stored in a root state. 
